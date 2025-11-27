@@ -19,7 +19,7 @@ export default function AuthWrapper({ children }: AuthWrapperProps) {
         return;
         }
 
-        fetch("https://avangard-website.onrender.com/check-token", {
+        fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/check-token`, {
         headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => {
