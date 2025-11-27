@@ -1,0 +1,154 @@
+
+.hero {
+	position: relative;
+	z-index: 1;
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+
+	width: 100%;
+	height: 700px;
+
+	transition: all 0.1s linear;
+
+	background: url(./hero.jpg)  center/cover;
+	gap: 70px;
+}
+
+.hero::before {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+
+	content: '';
+
+	background: rgba(36, 73, 105, 0.74);
+}
+
+.hero > * {
+	z-index: 1;
+}
+
+.title {
+	position: relative;
+}
+
+.logo {
+	width: 244px !important;
+}
+
+.title h1 {
+	position: absolute;
+	top: 50%;
+	right: 50%;
+
+	transform: translate(50%, -50%);
+
+	color: var(--white);
+
+	font-size: 54.2px;
+	font-weight: 800;
+	line-height: 54.2px;
+}
+
+.heroText {
+	display: flex;
+	gap: 22px;
+
+	height: 37px;
+
+	text-transform: uppercase;
+
+	color: var(--white);
+
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 37px;
+}
+
+.arrowContainer {
+	display: flex;
+	flex-direction: column;
+}
+
+.arrow {
+	width: 90px;
+	height: auto;
+
+	transition: all 0.3s linear;
+}
+
+.blinkingArrow {
+	animation: blink 1.7s infinite;
+}
+
+.blinkingArrow:nth-child(2) {
+	animation-delay: 0.1s;
+}
+
+.blinkingArrow:nth-child(3) {
+	animation-delay: 0.2s;
+}
+
+@keyframes blink {
+	0%,
+	45% {
+		opacity: 1;
+	}
+
+	51% {
+		opacity: 0.4;
+	}
+
+	80% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.slicer {
+	width: 3px;
+	height: 100%;
+
+	border-radius: 1.5px;
+	background-color: var(--white);
+}
+
+@media (max-width: 768px) {
+	.heroText {
+		align-items: center;
+		flex-direction: column;
+
+		height: auto;
+
+		font-size: 30px;
+		line-height: 30px;
+		gap: 22px;
+	}
+
+	.slicer {
+		width: 70px;
+		height: 3px;
+	}
+
+	.logo {
+		width: 144px !important;
+	}
+
+	.title h1 {
+		font-size: 32px;
+		font-weight: 800;
+		line-height: 32px;
+	}
+
+	.arrow {
+		width: 50px;
+	}
+}

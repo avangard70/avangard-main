@@ -1,0 +1,65 @@
+.wrapper {
+	padding: 30px 30px;
+
+	border-radius: 7px;
+	background-color: var(--white);
+}
+
+.withImage {
+	position: relative;
+}
+
+.withoutImage {
+	display: flex;
+	gap: 25px;
+
+	flex-direction: column;
+}
+
+.title {
+	text-transform: uppercase;
+
+	color: var(--black);
+
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+.text {
+	color: var(--black);
+}
+
+.bigger {
+	margin-bottom: 80px;
+
+	font-size: 22px;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+.lower {
+	font-size: 16px;
+	font-weight: 250;
+	line-height: 17px;
+}
+
+.image {
+	position: absolute;
+	right: 31px;
+	bottom: 17px;
+
+	overflow: hidden;
+
+	width: 50px !important;
+	height: 50px !important;
+
+	border-radius: 0 !important;
+}
+
+@media (max-width: 1050px) {
+	.bigger {
+		font-size: 17px;
+		line-height: 19px;
+	}
+}

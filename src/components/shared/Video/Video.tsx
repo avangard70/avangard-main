@@ -1,0 +1,24 @@
+import { DetailedHTMLProps, HTMLAttributes } from "react";
+import styles from './Video.module.css';
+import classNames from "classnames";
+
+export interface VideoProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>{
+    videoUrl: string
+    className?: string,
+}
+
+export default function Video({ videoUrl, className, ...props }: VideoProps) {
+
+    return (
+        <div className={classNames(styles.wrapper, className)}  {...props}>
+            <video
+                className={styles.video}
+                src={videoUrl}
+                loop
+                poster='/videoPreview.jpg'
+                preload="metadata"
+                controls
+            />
+        </div>
+    );
+}

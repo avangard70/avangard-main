@@ -1,0 +1,33 @@
+.button {
+	padding: 14.2px 85px 14.2px 77px;
+
+	transition: all 0.1s linear;
+
+	color: var(--white);
+	border-radius: 18px;
+	background-color: var(--primary);
+
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 16px;
+}
+
+.button:active {
+	transform: scale(0.9);
+
+	background-color: var(--primary-hover);
+}
+
+@media (min-width: 1025px) {
+	.button:hover {
+		transform: scale(1.02);
+
+		background-color: var(--primary-hover);
+	}
+
+	.button:active {
+		transform: scale(0.9);
+
+		background-color: var(--primary-hover);
+	}
+}
