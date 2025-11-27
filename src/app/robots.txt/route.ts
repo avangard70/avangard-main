@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-    const domain = process.env.NEXT_PUBLIC_MAIN_DOMAIN || 'https://remjest-avangard-testing-e1b1.twc1.net';
+    const domain = process.env.NEXT_PUBLIC_MAIN_DOMAIN || 'https://avangard-70.ru';
 
     const content = `User-agent: *
 Allow: /

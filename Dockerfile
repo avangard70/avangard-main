@@ -15,7 +15,7 @@ RUN npm ci
 # Копируем весь проект
 COPY . .
 
-ENV NEXT_PUBLIC_DOMAIN=https://avangard-website.onrender.com
+ENV NEXT_PUBLIC_DOMAIN=https://avangard70-avangard-server-5cc7.twc1.net
 
 # Сборка проекта (Next.js)
 RUN npm run build
