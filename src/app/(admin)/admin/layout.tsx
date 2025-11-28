@@ -15,7 +15,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Панель администратора | ООО «Авангард»",
+    title: "Панель администратора | ООО «Авангард»",
+    icons: "/logo.png",
 };
 
 export default function AdminLayout({ children }: { children: ReactNode }) {

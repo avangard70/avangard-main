@@ -11,6 +11,7 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "Вход для Администратора",
+  icons: "/logo.png",
 };
 
 export interface MainLayoutProps {
