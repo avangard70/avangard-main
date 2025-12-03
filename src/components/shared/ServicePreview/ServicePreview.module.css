@@ -3,13 +3,13 @@
 
 	display: block;
 
-    aspect-ratio: 5 / 3;
-
 	transition: all 0.1s linear;
 }
 
 .image {
 	pointer-events: none;
+
+	aspect-ratio: 5 / 3;
 }
 
 .title {
