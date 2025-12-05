@@ -13,6 +13,7 @@ import ImgTag from "@/src/components/shared/ImgTag/ImgTag";
 import Phone from './img/phone.png';
 import WhatsApp from './img/whatsapp.png';
 import Tg from './img/tg.png';
+import Max from './img/max.png';
 
 
 const montserrat = Montserrat({
@@ -70,6 +71,10 @@ export default function MainLayout({ children }: MainLayoutProps) {
                             <Link className={styles.whatsAppButton} href="https://wa.me/79539193800?text=Здравствуйте!" target="_blank" rel="noopener noreferrer" >
                                 <ImgTag className={styles.noBorder} src={WhatsApp} />
                                 <div className={styles.buttonText}> Напишите нам в WhatsApp! </div>
+                            </Link>
+                            <Link className={styles.whatsAppButton} href="https://max.ru/u/f9LHodD0cOLGeSNM23Hgmz7GCIMBnEryY81gupi2MIu1fVmOEvd4b8LZxVc?text=Здравствуйте!" target="_blank" rel="noopener noreferrer" >
+                                <ImgTag className={styles.noBorder} src={Max} />
+                                <div className={styles.buttonText}> Напишите нам в Max! </div>
                             </Link>
                             <Link className={styles.phoneButton} href="tel:83822233800">
                                 <ImgTag className={styles.noBorder} src={Phone} />
