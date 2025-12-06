@@ -8,15 +8,18 @@ export interface ServicePreviewProps {
     title: string,
     img: string | StaticImageData,
     src: string,
+    gloss?: boolean
     className?: string,
 }
 
-export default function ServicePreview({ title, img, src, className, ...props} : ServicePreviewProps ) {
+export default function ServicePreview({ title, img, src, gloss=false, className, ...props} : ServicePreviewProps ) {
 
     return (
         <Link href={src} className={classNames(styles.wrapper, className)} {...props}>
             <ImgTag className={styles.image} src={img} alt={`Превью услуги "${title}"`}/>
-            <div className={styles.title}><span>{ title }</span></div>
+            <div className={classNames(styles.title, {
+                [styles.glossTitle] : gloss,
+            })}><span>{ title }</span></div>
         </Link>
     );
 }

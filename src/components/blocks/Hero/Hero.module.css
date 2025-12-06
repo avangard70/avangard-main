@@ -70,6 +70,29 @@
 	line-height: 37px;
 }
 
+.heroText > .first {
+	animation: threePoints 0.3s ease-in 0s both;
+}
+
+.heroText > .second {
+	animation: threePoints 0.3s ease-in 0.3s both;
+}
+
+.heroText > .third {
+	animation: threePoints 0.3s ease-in 0.6s both;
+}
+
+@keyframes threePoints {
+	0% {
+		opacity: 0;
+	}
+
+	,
+	100% {
+		opacity: 1;
+	}
+}
+
 .arrowContainer {
 	display: flex;
 	flex-direction: column;

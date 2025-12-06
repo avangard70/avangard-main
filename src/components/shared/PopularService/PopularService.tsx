@@ -34,7 +34,7 @@ export default function PopularService({ title, description, src, img, className
                 <div className={styles.description}>{parseToHTML(displayDescription)}</div>
             </div>
             <div/>
-            <ServicePreview className={styles.image} src={src} title='Подробнее' img={img} />
+            <ServicePreview className={styles.image} src={src} title='Подробнее' img={img} gloss />
         </div>
     );
 }

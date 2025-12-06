@@ -20,11 +20,11 @@ export default function Hero({ className, ...props }: HeroProps) {
             </div>
             
             <div className={styles.heroText}>
-                <span>быстро</span>
-                <div className={styles.slicer} />
-                <span>качественно</span>
-                <div className={styles.slicer} />
-                <span>надежно</span>
+                <span className={styles.first}>быстро</span>
+                <div className={classNames(styles.slicer, styles.first)} />
+                <span className={styles.second}>качественно</span>
+                <div className={classNames(styles.slicer, styles.third)} />
+                <span className={styles.third}>надежно</span>
             </div>
             <div className={styles.arrowContainer}>
                 <Arrow className={classNames(styles.arrow, styles.blinkingArrow)} />

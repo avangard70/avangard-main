@@ -99,7 +99,7 @@ export default async function HomePage(): Promise<JSX.Element>{
                     </div>
                     <Video videoUrl={`${process.env.NEXT_PUBLIC_DOMAIN}${pageData.about.videoURL}`} />
                     {pageData.about.important &&
-                        <Important>
+                        <Important gloss>
                             {parseToHTML(pageData.about.important)}
                         </Important>
                     }

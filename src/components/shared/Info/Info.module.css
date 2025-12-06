@@ -17,7 +17,12 @@
 }
 
 .title {
+	transform: translateX(-40px);
+	animation: fadeUp 1s forwards;
+	animation-play-state: paused;
 	text-transform: uppercase;
+
+	opacity: 0;
 
 	color: var(--black);
 
@@ -27,7 +32,24 @@
 }
 
 .text {
+	transform: translateX(-40px);
+	animation: fadeUp 1s 0.3s forwards;
+	animation-play-state: paused;
+
+	opacity: 0;
 	color: var(--black);
+}
+
+.visible {
+	animation-play-state: running;
+}
+
+@keyframes fadeUp {
+	to {
+		transform: translateX(0);
+
+		opacity: 1;
+	}
 }
 
 .bigger {
