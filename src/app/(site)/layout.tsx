@@ -21,20 +21,19 @@ const montserrat = Montserrat({
   subsets: ["latin"],
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  const domain = process.env.NEXT_PUBLIC_MAIN_DOMAIN || 'https://remjest-avangard-testing-e1b1.twc1.net';
+export function generateMetadata(): Metadata {
 
   return {
-    title: "Независимая оценочная компания | ООО «АВАНГАРД»",
+    title: "ООО «Авангард» | Юридическая помощь в Томске",
     description: "ООО «АВАНГАРД» - Мы проводим любой вид независимой оценки и экспертизы имущества. Помогаем клиентам отстоять их интересы и получить достойную компенсацию в г. Томске и Области",
     icons: "/logo.png",
     openGraph: {
-      title: "Независимая оценочная компания | ООО «АВАНГАРД»",
+      title: "ООО «Авангард» | Юридическая помощь в Томске",
       description: "ООО «АВАНГАРД» - Мы проводим любой вид независимой оценки и экспертизы имущества. Помогаем клиентам отстоять их интересы и получить достойную компенсацию в г. Томске и Области",
-      url: domain,
+      url: 'https://avangard-70.ru',
       images: [
         {
-          url: `${domain}/videoPreview.jpg`,
+          url: `https://avangard-70.ru/videoPreview.jpg`,
           width: 1200,
           height: 630,
         },
@@ -42,9 +41,9 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: "Независимая оценочная компания | ООО «АВАНГАРД»",
+      title: "ООО «Авангард» | Юридическая помощь в Томске",
       description: "ООО «АВАНГАРД» - Мы проводим любой вид независимой оценки и экспертизы имущества.",
-      images: [`${domain}/videoPreview.jpg`],
+      images: [`https://avangard-70.ru/videoPreview.jpg`],
     },
   };
 }

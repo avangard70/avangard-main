@@ -117,7 +117,7 @@ export default async function ServicePage({ params }: { params: Promise<{ catego
             </div>
             {pageData.videoLink &&
                 <>
-                    <HTag className={styles.h1} tag="h2" direction="fromRight">Подробности услуги — на видео</HTag>
+                    <HTag className={styles.videoTitle} tag="h2" direction="fromRight">Подробности услуги — на видео</HTag>
                     <Video className={classNames(styles.video)} videoUrl={`${process.env.NEXT_PUBLIC_DOMAIN}${pageData.videoLink}`} />
                 </>
             }

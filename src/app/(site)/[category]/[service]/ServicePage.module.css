@@ -57,6 +57,10 @@
 	grid-area: subText;
 }
 
+.videoTitle {
+	margin-left: 30px;
+}
+
 .video {
 	max-width: 1000px;
 	margin: 0 auto;
@@ -142,15 +146,29 @@
 		grid-template-columns: 10px 1fr 10px;
 	}
 
+	.videoTitle {
+		margin-left: 10px;
+	}
+
+	.mainTitle,
+	.subTitle,
+	.videoTitle {
+		padding: 14px 32px !important;
+	}
+
 	.mainText,
 	.subText {
 		margin: 0 auto;
 
-		font-size: 12px;
+		padding: 0 5px 0 15px !important;
+
+		font-size: 13px;
 	}
 
 	.h1 {
 		margin-left: 5px;
+
+		padding: 17px 32px !important;
 
 		font-size: 22px !important;
 		font-weight: 800 !important;
