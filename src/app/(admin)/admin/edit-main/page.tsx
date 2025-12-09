@@ -6,7 +6,6 @@ import styles from './EditMainPage.module.css';
 import gStyles from './../../../(site)/Global.module.css';
 import HTag from "@/src/components/shared/HTag/HTag";
 import ImgTag from "@/src/components/shared/ImgTag/ImgTag";
-import Price from "@/src/components/shared/Price/Price";
 import { parseToHTML } from "@/src/helpers";
 import Important from "@/src/components/shared/Important/Important";
 import { Main } from "@/src/interfaces";
@@ -26,7 +25,6 @@ export default function EditServicePage() {
 
     const [data, setData] = useState<Main | undefined>(undefined);
     const [video, setVideo] = useState<string | null>(null);
-    const [preview, setPreview] = useState<string | null>(null);
     const [icons, setIcons] = useState<string[]>([]);
 
     type FormValues = Main & {
@@ -62,6 +60,7 @@ export default function EditServicePage() {
     }, [reset]);
     
     const onSubmit: SubmitHandler<FormValues> = async (newData, e) => {
+        console.log('a')
         e?.preventDefault();
         
         const { videoFile, previewImage, icons, ...mainData } = newData;
@@ -297,74 +296,6 @@ export default function EditServicePage() {
                 }
                 {errors.videoFile && <div className={styles.err}>{errors.videoFile.message}</div>}
 
-
-                {/* <label className={styles.bigLabel}>РАЗДЕЛ: ОЦЕНКА НЕДВИЖИМОСТИ</label>
-
-                <label className={styles.label}>Введите информацию об услуге</label>
-                <label className={styles.tip}>
-                    <span className={styles.tipGreen}>ТЭГИ: обрабатываются </span><br /><br />
-                    <span className={styles.tipRed}>Обязательное поле </span><br />
-                </label>
-                <textarea
-                    placeholder="Введите  информацию об услуге"
-                    className={styles.textarea}
-                    {...register("propertyValuation.info", {
-                        required: 'Заполните поле',
-                        maxLength: {
-                            value: 2000,
-                            message: "Длина должна быть меньше 2000 символов"
-                        }
-                    })}
-                />
-                {errors.propertyValuation?.info && <div className={styles.err}> {errors.propertyValuation.info.message} </div>}
-
-                <label className={styles.label}>Введите цену</label>
-                <label className={styles.tip}>
-                    <span className={styles.tipRed}>ТЭГИ: не обрабатываются </span><br /><br />
-                    <span className={styles.tipGreen}>Необязательное поле </span><br /><br />
-                    Вы можете написать цену как вам захочется. Например: "от 3000 ₽", "ИНДИВИДУАЛЬНО" и т. д.
-                </label>
-                <input type="text"
-                    placeholder="Введите цену"
-                    className={styles.input}
-                    {...register("propertyValuation.price", {
-                        maxLength: {
-                            value: 255,
-                            message: "Длина должна быть меньше 255 символов"
-                        }
-                    })}
-                    
-                />
-                {errors.propertyValuation?.price && <div className={styles.err}> {errors.propertyValuation.price.message} </div>}
-
-                <label className={styles.label}>Выберите изображение для отображения на превью</label>
-                <label className={styles.tip}>
-                    <span className={styles.tipRed}>ТЭГИ: не обрабатываются </span><br /><br />
-                    <span className={styles.tipGreen}>Необязательное поле </span><br /><br />
-                    <span className={styles.tipRed}>ВАЖНО! </span> Изображение будет корректно отображаться, если соотношение его сторон будет приблизительно 5 / 3.
-                </label>
-                <input
-                    className={styles.hiddenInput}
-                    type="file"
-                    id="previewInput"
-                    accept="image/*"
-                    {...register("previewImage", {
-                        onChange: (e) => {
-                        const file = e.target.files?.[0];
-                        if (file) {
-                            if (preview) URL.revokeObjectURL(preview);
-                            setPreview(URL.createObjectURL(file));
-                        }
-                        },
-                    })}
-                />
-                <label htmlFor="previewInput" className={styles.uploadLabel}>
-                    {preview ? "Изменить изображение" : "Загрузить изображение"}
-                </label>
-                <ImgTag className={classNames(styles.preview)} src={preview ? preview  : data?.propertyValuation.imageURL ? `${process.env.NEXT_PUBLIC_DOMAIN}${data.propertyValuation.imageURL}` : '/default.jpg'} alt="Здесь будет ваше превью" width={800} height={600} />
-                {errors.previewImage && <div className={styles.err}>{errors.previewImage.message}</div>} */}
-
-                
                 <label className={styles.bigLabel}>РАЗДЕЛ: ПРИНЦИПЫ РАБОТЫ НАШЕЙ КОМПАНИИ</label>
 
                 <label className={styles.label}>Введите принципы компании</label>
@@ -442,7 +373,7 @@ export default function EditServicePage() {
                                     }
                                 })}
                             />
-                            {errors.workPrinciples?.[i]?.text && <div className={styles.err}> {errors.workPrinciples[i]?.text.message} </div>}
+                            {errors.advantages?.[i]?.header && <div className={styles.err}> {errors.advantages[i]?.header.message} </div>}
 
                             <label className={styles.tip}>
                                 <span className={styles.tipGreen}>ТЭГИ: обрабатываются</span><br /><br />
@@ -454,12 +385,13 @@ export default function EditServicePage() {
                                 {...register(`advantages.${i}.description`, {
                                     required: true,
                                     maxLength: {
-                                        value: 250,
-                                        message: "Длина должна быть меньше 250 символов"
+                                        value: 500,
+                                        message: "Длина должна быть меньше 500 символов"
                                     }
                                 })}
                             />
-                            {errors.advantages?.[i]?.header && <div className={styles.err}> {errors.advantages[i]?.header.message} </div>}
+                            {errors.advantages?.[i]?.description && <div className={styles.err}> {errors.advantages[i]?.description.message} </div>}
+                            
                         </React.Fragment>
                     );
                 })}
@@ -479,31 +411,12 @@ export default function EditServicePage() {
                             <Info key={idx}>{parseToHTML(point)}</Info>
                         )}
                     </div>
-                    <Video videoUrl={video || `${process.env.NEXT_PUBLIC_DOMAIN}${data?.about.videoURL}`} />
+                    {data?.about.videoURL ? <Video videoUrl={`${process.env.NEXT_PUBLIC_DOMAIN}${data?.about.videoURL}`} /> : <ImgTag src="/default.jpg" />}
                     <Important>
                         {parseToHTML(watchAll?.about?.important || "")}
                     </Important>
                 </div>
-                {/* <HTag className={styles.h1} tag="h2" direction="fromRight">ОЦЕНКА НЕДВИЖИМОСТИ</HTag>
-                <div className={styles.textWrapper}>
-                    <div className={styles.bigText}>
-                        {parseToHTML(watchAll?.propertyValuation?.info || "")}
-                    </div>
-                    <div className={styles.home}>
-                        <ImgTag
-                            className={styles.homeImg}
-                            src={
-                                preview
-                                    ? preview
-                                    : watchAll?.propertyValuation?.imageURL
-                                        ? `${process.env.NEXT_PUBLIC_DOMAIN}${watchAll.propertyValuation.imageURL}`
-                                        : '/default.jpg'
-                            }
-                        />
 
-                        <Price price={watchAll?.propertyValuation?.price || ""} size="lower"/>
-                    </div>
-                </div> */}
                 <HTag className={styles.h1} tag="h2" direction="fromRight">ПРИНЦИПЫ РАБОТЫ НАШЕЙ КОМПАНИИ</HTag>
                 <div className={gStyles.sectionWrapper}>
                     <div className={styles.fourGrid}>
