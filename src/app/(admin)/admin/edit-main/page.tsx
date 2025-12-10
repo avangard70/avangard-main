@@ -60,7 +60,6 @@ export default function EditServicePage() {
     }, [reset]);
     
     const onSubmit: SubmitHandler<FormValues> = async (newData, e) => {
-        console.log('a')
         e?.preventDefault();
         
         const { videoFile, previewImage, icons, ...mainData } = newData;
