@@ -14,7 +14,7 @@ import Phone from './img/phone.png';
 import WhatsApp from './img/whatsapp.png';
 import Tg from './img/tg.png';
 import Max from './img/max.png';
-import YandexMetrica from "./yandexMetrica";
+import YandexMetrica from "./YandexMetrica";
 
 
 const montserrat = Montserrat({
