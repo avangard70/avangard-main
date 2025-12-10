@@ -21,7 +21,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
     const { category }: { category: string } = await params;
 
     const categories: NestedCategories[] = ['services', 'expertise'];
-    const title: string = category === 'services' ? 'Услуги оценки' : 'Наши экспертизы';
+    const title: string = category === 'services' ? 'Услуги оценки' : 'Услуги экспертизы';
 
     if (!categories.includes(category as NestedCategories)) {
         notFound();

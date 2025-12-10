@@ -31,7 +31,7 @@ function FirstLevel( props: MenuProps) {
     const firstLevelMenu: FirstLevelMenuItem[] = [
         { route: '', name: 'Главная', icon: <Home className={styles.nostroke}/>, id: 2, isNested: false },
         { route: 'services', name: 'Услуги оценки', icon: <Services className={styles.nofill}/>, id: 0, isNested: true},
-        { route: 'expertise', name: 'Наши экспертизы', icon: <Expertise className={styles.nofill}/>, id: 1, isNested: true},
+        { route: 'expertise', name: 'Услуги экспертизы', icon: <Expertise className={styles.nofill}/>, id: 1, isNested: true},
         { route: 'contacts', name: 'Контакты', icon: <Contacts className={styles.nostroke}/>, id: 3, isNested: false },
         { route: 'payment', name: 'Способы оплаты', icon: <Payment className={styles.nostroke} />, id: 4, isNested: false },
     ];
