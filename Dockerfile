@@ -15,7 +15,7 @@ RUN npm ci
 # Копируем весь проект
 COPY . .
 
-ENV NEXT_PUBLIC_DOMAIN=https://avangard70-avangard-server-5cc7.twc1.net
+ENV NEXT_PUBLIC_DOMAIN=https://avangard-70-server.ru
 ENV NEXT_PUBLIC_MAIN_DOMAIN=https://avangard-70.ru
 
 # Сборка проекта (Next.js)

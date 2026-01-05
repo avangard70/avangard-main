@@ -51,7 +51,6 @@ export interface PopularInterface {
 
 async function loadPopular () {
     try {
-        // безопасный fetch, чтобы не падать на 404
         const safeFetch = async (url: string) => {
             try {
             const res = await fetch(url);
