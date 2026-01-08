@@ -5,6 +5,7 @@ import Geo from './geo.svg';
 import Time from './time.svg';
 import Mail from './mail.svg';
 import Num from './num.svg';
+import Doc from './doc.svg';
 import Link from 'next/link';
 import classNames from 'classnames';
 import ImgTag from '../../shared/ImgTag/ImgTag';
@@ -43,9 +44,14 @@ export default function Footer({className,...props}: FooterProps) {
                         <Mail/>
                         expert233800@mail.ru
                     </Link>
-                    
+                    <Link className={styles.point} href="/politicy">
+                        <Doc/>
+                        Политика конфиденциальности
+                    </Link>
                 </nav>
+                
             </div>
+            
         </footer>
     );
 }

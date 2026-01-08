@@ -6,6 +6,7 @@ import Services from './icons/user.svg';
 import Expertise from './icons/doc.svg';
 import Contacts from './icons/phone.svg';
 import Payment from './icons/pay.svg';
+import Perk from './icons/perk.svg';
 import styles from './Menu.module.css';
 import MenuProvider, { IMenuContext, MenuContext } from "./menu.context";
 import Link from "next/link";
@@ -34,6 +35,7 @@ function FirstLevel( props: MenuProps) {
         { route: 'expertise', name: 'Услуги экспертизы', icon: <Expertise className={styles.nofill}/>, id: 1, isNested: true},
         { route: 'contacts', name: 'Контакты', icon: <Contacts className={styles.nostroke}/>, id: 3, isNested: false },
         { route: 'payment', name: 'Способы оплаты', icon: <Payment className={styles.nostroke} />, id: 4, isNested: false },
+        { route: 'list_privileged.pdf', name: 'Льготные категории граждан', icon: <Perk className={styles.nofill} />, id: 5, isNested: false, newTab: true },
     ];
     
     const pagePath = usePathname();
@@ -130,7 +132,7 @@ function FirstLevel( props: MenuProps) {
                     return (
                         <div key={category.name} onClick={() => {
                         }}>
-                                <Link href={route} className={classNames(styles.firstLevel, {
+                                <Link href={route} target={category.newTab ? '_blank' : '_self'} rel="noopener noreferrer" className={classNames(styles.firstLevel, {
                                     [styles.firstLevelActive]: category.id === activeCategory
                                 }
                                 )}>

@@ -1,0 +1,25 @@
+.wrapper {
+	height: 100%;
+	padding: 15px 0 !important;
+	padding-bottom: 35px !important;
+}
+
+.h2 {
+	margin-left: 40px;
+}
+
+.sectionWrapper {
+	max-width: 1160px;
+	margin: 0 auto;
+	margin-top: 20px;
+
+	padding: 0 20px;
+
+	white-space: pre-wrap;
+}
+
+@media (max-width: 425px) {
+	.h2 {
+		margin-left: 20px;
+	}
+}

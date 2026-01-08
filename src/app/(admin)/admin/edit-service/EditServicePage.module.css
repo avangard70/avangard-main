@@ -35,6 +35,8 @@
 
 	width: 100%;
 	margin-left: 20px;
+
+	white-space: pre-wrap;
 }
 
 .subTitle {
@@ -43,6 +45,8 @@
 
 .subText {
 	grid-area: subText;
+
+	white-space: pre-wrap;
 }
 
 .video {
@@ -53,6 +57,8 @@
 
 .important {
 	margin: 0 30px;
+
+	white-space: pre-wrap;
 }
 
 .withLine {
@@ -60,6 +66,8 @@
 
 	margin: 0 30px;
 	padding-left: 20px;
+
+	white-space: pre-wrap;
 
 	font-size: 20px;
 	line-height: 22px;

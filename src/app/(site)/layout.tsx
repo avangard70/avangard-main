@@ -14,7 +14,7 @@ import Phone from './img/phone.png';
 import WhatsApp from './img/whatsapp.png';
 import Tg from './img/tg.png';
 import Max from './img/max.png';
-import YandexMetrica from "./YandexMetrica";
+import YandexMetrica from "../../components/shared/YandexMetrica/YandexMetrica";
 
 
 const montserrat = Montserrat({
@@ -25,11 +25,11 @@ const montserrat = Montserrat({
 export function generateMetadata(): Metadata {
 
   return {
-    title: "ООО «Авангард» | Юридическая помощь в Томске",
+    title: "ООО «Авангард» | Экспертно-оценочная компания в Томске",
     description: "ООО «АВАНГАРД» - Мы проводим любой вид независимой оценки и экспертизы имущества. Помогаем клиентам отстоять их интересы и получить достойную компенсацию в г. Томске и Области",
     icons: "/logo.png",
     openGraph: {
-      title: "ООО «Авангард» | Юридическая помощь в Томске",
+      title: "ООО «Авангард» | Экспертно-оценочная компания в Томске",
       description: "ООО «АВАНГАРД» - Мы проводим любой вид независимой оценки и экспертизы имущества. Помогаем клиентам отстоять их интересы и получить достойную компенсацию в г. Томске и Области",
       url: 'https://avangard-70.ru',
       images: [
@@ -42,7 +42,7 @@ export function generateMetadata(): Metadata {
     },
     twitter: {
       card: 'summary_large_image',
-      title: "ООО «Авангард» | Юридическая помощь в Томске",
+      title: "ООО «Авангард» | Экспертно-оценочная компания в Томске",
       description: "ООО «АВАНГАРД» - Мы проводим любой вид независимой оценки и экспертизы имущества.",
       images: [`https://avangard-70.ru/videoPreview.jpg`],
     },

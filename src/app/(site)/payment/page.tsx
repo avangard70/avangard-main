@@ -5,6 +5,7 @@ import { parseToHTML } from "@/src/helpers";
 import ImgTag from "@/src/components/shared/ImgTag/ImgTag";
 import Qr from './qr.png';
 import Link from "next/link";
+import classNames from "classnames";
 
 
 export default function PaymentPage(): JSX.Element { 
@@ -30,12 +31,19 @@ export default function PaymentPage(): JSX.Element {
                     <ImgTag src={Qr} />
                 </Link>
             </div>
+            <HTag className={styles.h3} tag="h3" direction="fromLeft">Карточка предприятия</HTag>
+            <div className={styles.sectionWrapper}>
+                <Link className={classNames(styles.textlink, styles.withLine)} href={'/сompany_card.pdf'} target="_blank" rel="noopener noreferrer">
+                    Открыть PDF
+                </Link>
+            </div>
             <HTag className={styles.h3} tag="h3" direction="fromLeft">Оплата по счету</HTag>
             <div className={styles.sectionWrapper}>
                 <span>
-                    Оплата возможна также по безналичному расчёту. Будет сформирован счёт на оплату, который Вы можете распечатать и оплатить. Предоставляем все необходимые документы для бухгалтерии (счёт на оплату, договор, акт оказанных услуг).
+                    Оплата возможна также по безналичному расчёту. Предоставляем все необходимые документы для бухгалтерии (счёт на оплату, договор, акт оказанных услуг).<br/> Работаем с ЭДО Saby (СБИС).
                 </span>
             </div>
+
             <div className={styles.withLine}>
                 <h3>РЕКВИЗИТЫ ДЛЯ БЕЗНАЛИЧНОЙ ОПЛАТЫ:</h3>
                 <p>{parseToHTML("/bold/ООО «АВАНГАРД»//bold//")}</p>

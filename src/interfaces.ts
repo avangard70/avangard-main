@@ -14,6 +14,7 @@ export interface FirstLevelMenuItem {
     icon: JSX.Element;
     id: number;
     isNested: boolean;
+    newTab?: boolean;
 }
 
 export interface Subcategory {
