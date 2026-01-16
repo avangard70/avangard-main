@@ -14,7 +14,8 @@ import API from "@/src/api/API";
 import { getMainPage } from "@/src/api/mainPage";
 import { notFound } from "next/navigation";
 
-export const revalidate = 300;
+// export const revalidate = 300;
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata() {
     
