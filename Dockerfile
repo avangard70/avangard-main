@@ -26,18 +26,20 @@ FROM node:20-alpine AS runner
 
 WORKDIR /app
 
-# Копируем только нужное из сборки
-COPY --from=builder /app/package*.json ./
+# Устанавливаем только production-зависимости
+COPY package*.json ./
+RUN npm ci --only=production
+
+# Копируем собранные артефакты
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/node_modules ./node_modules
 
-# Определяем переменные окружения
+# Безопасный пользователь
+USER node
+
 ENV NODE_ENV=production
 ENV PORT=3000
 
-# Открываем порт
 EXPOSE 3000
 
-# Команда запуска
 CMD ["npm", "run", "start"]
