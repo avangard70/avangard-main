@@ -7,13 +7,14 @@ import { notFound } from "next/navigation";
 import { JSX } from "react";
 import styles from "./CategoryPage.module.css";
 
-export const revalidate = 300;
+// export const revalidate = 300;
+export const dynamic = 'force-dynamic';
 
-export function generateStaticParams() {
-    const categories: NestedCategories[] = ['services', 'expertise'];
+// export function generateStaticParams() {
+//     const categories: NestedCategories[] = ['services', 'expertise'];
     
-    return categories.map((category) => ({ category: category }));
-}
+//     return categories.map((category) => ({ category: category }));
+// }
 
 
 export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }): Promise<JSX.Element> {

@@ -9,11 +9,11 @@ import ImgTag from "@/src/components/shared/ImgTag/ImgTag";
 import Important from "@/src/components/shared/Important/Important";
 import Price from "@/src/components/shared/Price/Price";
 import { getByAlias } from "@/src/api/alias";
-import { getShortsByCategory } from "@/src/api/shortsByCategory";
 import classNames from "classnames";
 import Video from "@/src/components/shared/Video/Video";
 
-export const revalidate = 300;
+// export const revalidate = 300;
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }: { params: Promise<{ category: string, service: string }> }) {
     
@@ -47,33 +47,33 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
 }
 
 
-export async function generateStaticParams() {
-    const categories: NestedCategories[] = ['services', 'expertise'];
+// export async function generateStaticParams() {
+//     const categories: NestedCategories[] = ['services', 'expertise'];
 
-    const allParams = [];
+//     const allParams = [];
     
-    for (const category of categories) {
-        const res = await getShortsByCategory(categories.indexOf(category) + 1);
+//     for (const category of categories) {
+//         const res = await getShortsByCategory(categories.indexOf(category) + 1);
         
-        if (!res.success) {
-            console.error('Failed to generate static params to pages:', res.error);
-            continue;
-        }
+//         if (!res.success) {
+//             console.error('Failed to generate static params to pages:', res.error);
+//             continue;
+//         }
         
-        const shorts = res.data;
+//         const shorts = res.data;
         
-        if (shorts) {
-            const categoryParams = shorts.map((short) => ({
-                category: category,
-                service: short.alias
-            }));
+//         if (shorts) {
+//             const categoryParams = shorts.map((short) => ({
+//                 category: category,
+//                 service: short.alias
+//             }));
             
-            allParams.push(...categoryParams);
-        }
-    }
+//             allParams.push(...categoryParams);
+//         }
+//     }
     
-    return allParams;
-}
+//     return allParams;
+// }
 
 
 
