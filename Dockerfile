@@ -34,6 +34,12 @@ RUN npm ci --only=production
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 
+RUN rm -rf /tmp /var/tmp && \
+    mkdir -p /dev/shm/tmp && \
+    ln -s /dev/shm/tmp /tmp && \
+    mkdir -p /dev/shm/var_tmp && \
+    ln -s /dev/shm/var_tmp /var/tmp
+
 # Безопасный пользователь
 USER node
 
@@ -45,5 +51,4 @@ ENV PORT=3000
 
 EXPOSE 3000
 
-# Запуск с ограничениями
-CMD ["sh", "-c", "mount -o remount,noexec,nosuid /tmp && mount -o remount,noexec,nosuid /var/tmp && npm run start"]
+CMD ["npm", "run", "start"]
