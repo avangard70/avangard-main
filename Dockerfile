@@ -34,11 +34,11 @@ RUN npm ci --only=production
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 
-RUN rm -rf /tmp /var/tmp && \
-    mkdir -p /dev/shm/tmp && \
-    ln -s /dev/shm/tmp /tmp && \
-    mkdir -p /dev/shm/var_tmp && \
-    ln -s /dev/shm/var_tmp /var/tmp
+# RUN rm -rf /tmp /var/tmp && \
+#     mkdir -p /dev/shm/tmp && \
+#     ln -s /dev/shm/tmp /tmp && \
+#     mkdir -p /dev/shm/var_tmp && \
+#     ln -s /dev/shm/var_tmp /var/tmp
 
 # Безопасный пользователь
 USER node

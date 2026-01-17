@@ -4,7 +4,6 @@ import { Result } from "./types";
 
 export async function editSubcategory(id: string, newData: Subcategory): Promise<Result<boolean>> {
 
-    console.log(JSON.stringify(newData));
 
     try {
         const res = await fetch(API.subcategories.byId + id, {
