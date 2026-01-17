@@ -37,9 +37,13 @@ COPY --from=builder /app/public ./public
 # Безопасный пользователь
 USER node
 
+# Сделать корневую ФС read-only
+VOLUME ["/tmp", "/var/tmp"]
+
 ENV NODE_ENV=production
 ENV PORT=3000
 
 EXPOSE 3000
 
-CMD ["npm", "run", "start"]
+# Запуск с ограничениями
+CMD ["sh", "-c", "mount -o remount,noexec,nosuid /tmp && mount -o remount,noexec,nosuid /var/tmp && npm run start"]
