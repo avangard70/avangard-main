@@ -13,37 +13,32 @@ RUN npm run build
 # --- Этап 2: запуск продакшен-сервера ---
 FROM node:20-alpine AS runner
 
-# Устанавливаем только production-зависимости
 WORKDIR /app
+
+# Устанавливаем production-зависимости ОТ ROOT
 COPY package*.json ./
 RUN npm ci --only=production
 
-# Копируем артефакты
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 
-# Создаём минимальные tmp-директории с правами, но БЕЗ возможности записи в корень
-RUN mkdir -p /tmp /var/tmp && \
-    chmod 1777 /tmp /var/tmp
-
-# Делаем ВСЮ файловую систему недоступной для записи — кроме /tmp и /var/tmp
-# Но так как мы не можем использовать --read-only, делаем хитрость:
-# перемонтируем корень как read-only через init-скрипт
+# Устанавливаем busybox-extras для mount
 RUN apk add --no-cache busybox-extras
 
-# Создаём безопасный стартовый скрипт
+# Создаём entrypoint.sh — он будет запущен от root
 RUN echo '#!/bin/sh\n\
-# Перемонтируем корневую ФС как read-only\n\
-mount -o remount,ro / || echo "Не удалось сделать / read-only"\n\
-# Пересоздаём /tmp и /var/tmp как tmpfs (в памяти, noexec)\n\
-mount -t tmpfs -o rw,noexec,nosuid,size=50m tmpfs /tmp || echo "Не удалось смонтировать /tmp"\n\
-mount -t tmpfs -o rw,noexec,nosuid,size=30m tmpfs /var/tmp || echo "Не удалось смонтировать /var/tmp"\n\
-# Запускаем приложение\n\
-exec npm run start\n\
+set -e\n\
+# Делаем корень read-only\n\
+mount -o remount,ro / || echo "Warning: cannot remount / as read-only"\n\
+# Монтируем tmpfs\n\
+mount -t tmpfs -o rw,noexec,nosuid,size=50m tmpfs /tmp\n\
+mount -t tmpfs -o rw,noexec,nosuid,size=30m tmpfs /var/tmp\n\
+# Переключаемся на пользователя node и запускаем приложение\n\
+exec su-exec node npm run start\n\
 ' > /entrypoint.sh && chmod +x /entrypoint.sh
 
-# Безопасный пользователь
-USER node
+# Важно: НЕ меняем пользователя заранее!
+# USER node — НЕ указываем здесь
 
 ENV NODE_ENV=production
 ENV PORT=3000
