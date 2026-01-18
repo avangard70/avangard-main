@@ -28,11 +28,13 @@ RUN apk add --no-cache busybox-extras su-exec
 RUN cat > /entrypoint.sh <<'EOF'
 #!/bin/sh
 set -e
-mount -o remount,ro / || echo "Warning: cannot remount / as read-only"
+# Сначала монтируем tmpfs
 mount -t tmpfs -o rw,noexec,nosuid,size=50m tmpfs /tmp
 mount -t tmpfs -o rw,noexec,nosuid,size=30m tmpfs /var/tmp
-exec su-exec node npm run start
-EOF
+# Только потом remount /
+mount -o remount,ro / || echo "Warning: cannot remount / as read-only"
+# Запускаем Next.js напрямую через npx
+exec su-exec node npx next start -p 3000
 
 RUN chmod +x /entrypoint.sh
 
