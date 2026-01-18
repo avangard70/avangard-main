@@ -15,30 +15,23 @@ FROM node:20-alpine AS runner
 
 WORKDIR /app
 
-# Устанавливаем production-зависимости ОТ ROOT
 COPY package*.json ./
 RUN npm ci --only=production
 
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 
-# Устанавливаем busybox-extras для mount
-RUN apk add --no-cache busybox-extras
+# Устанавливаем busybox-extras и su-exec
+RUN apk add --no-cache busybox-extras su-exec
 
-# Создаём entrypoint.sh — он будет запущен от root
+# Создаём entrypoint.sh
 RUN echo '#!/bin/sh\n\
 set -e\n\
-# Делаем корень read-only\n\
 mount -o remount,ro / || echo "Warning: cannot remount / as read-only"\n\
-# Монтируем tmpfs\n\
 mount -t tmpfs -o rw,noexec,nosuid,size=50m tmpfs /tmp\n\
 mount -t tmpfs -o rw,noexec,nosuid,size=30m tmpfs /var/tmp\n\
-# Переключаемся на пользователя node и запускаем приложение\n\
 exec su-exec node npm run start\n\
 ' > /entrypoint.sh && chmod +x /entrypoint.sh
-
-# Важно: НЕ меняем пользователя заранее!
-# USER node — НЕ указываем здесь
 
 ENV NODE_ENV=production
 ENV PORT=3000
