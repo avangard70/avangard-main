@@ -35,6 +35,7 @@ mount -t tmpfs -o rw,noexec,nosuid,size=30m tmpfs /var/tmp
 mount -o remount,ro / || echo "Warning: cannot remount / as read-only"
 # Запускаем Next.js напрямую через npx
 exec su-exec node npx next start -p 3000
+EOF
 
 RUN chmod +x /entrypoint.sh
 
