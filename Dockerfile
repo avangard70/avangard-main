@@ -29,7 +29,7 @@ COPY --from=builder /app/public ./public
 
 USER node
 
-ENV NODE_ENV=production
+ENV NODE_ENV=productionx`
 ENV PORT=3000
 
 EXPOSE 3000
