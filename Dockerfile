@@ -43,5 +43,8 @@ ENV NODE_ENV=production
 ENV PORT=3000
 
 EXPOSE 3000
+# Контейнер должен стартовать от root, чтобы выполнить mount
+USER root
 
-CMD ["/entrypoint.sh"]
+# Явно задаём entrypoint, чтобы обойти встроенный docker-entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
