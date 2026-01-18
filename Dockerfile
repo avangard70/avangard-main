@@ -3,11 +3,17 @@ FROM node:20-alpine AS builder
 RUN apk add --no-cache ca-certificates
 WORKDIR /app
 
+WORKDIR /app
+
 COPY package*.json ./
+
 RUN npm ci
+
 COPY . .
+
 ENV NEXT_PUBLIC_DOMAIN=https://avangard-70-server.ru
 ENV NEXT_PUBLIC_MAIN_DOMAIN=https://avangard-70.ru
+
 RUN npm run build
 
 # --- Этап 2: запуск продакшен-сервера ---
@@ -21,30 +27,11 @@ RUN npm ci --only=production
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 
-# Устанавливаем необходимые утилиты
-RUN apk add --no-cache busybox-extras su-exec
-
-# Надёжное создание entrypoint.sh
-RUN cat > /entrypoint.sh <<'EOF'
-#!/bin/sh
-set -e
-# Сначала монтируем tmpfs
-mount -t tmpfs -o rw,noexec,nosuid,size=50m tmpfs /tmp
-mount -t tmpfs -o rw,noexec,nosuid,size=30m tmpfs /var/tmp
-# Только потом remount /
-mount -o remount,ro / || echo "Warning: cannot remount / as read-only"
-# Запускаем Next.js напрямую через npx
-exec su-exec node npx next start -p 3000
-EOF
-
-RUN chmod +x /entrypoint.sh
+USER node
 
 ENV NODE_ENV=production
 ENV PORT=3000
 
 EXPOSE 3000
-# Контейнер должен стартовать от root, чтобы выполнить mount
-USER root
 
-# Явно задаём entrypoint, чтобы обойти встроенный docker-entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+CMD ["npm", "run", "start"]
