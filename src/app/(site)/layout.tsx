@@ -15,6 +15,7 @@ import WhatsApp from './img/whatsapp.png';
 import Tg from './img/tg.png';
 import Max from './img/max.png';
 import YandexMetrica from "../../components/shared/YandexMetrica/YandexMetrica";
+import ContactsFloating from "@/src/components/shared/ContactsFloating/ContactsFloating";
 
 
 const montserrat = Montserrat({
@@ -63,25 +64,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                 <Sidebar menu='client' className={styles.sidebar} />
                 <Main className={styles.main}>
                     {children}
-                    <div className={styles.stickyWrapper}>
-                        <div className={styles.contactsWrapper}>
-                            <Link className={styles.whatsAppButton} href="https://t.me/avangard70ru?text=Здравствуйте!" target="_blank" rel="noopener noreferrer" >
-                                <ImgTag className={styles.noBorder} src={Tg} />
-                                <div className={styles.buttonText}> Напишите нам в Телеграм! </div>
-                            </Link>
-                            <Link className={styles.whatsAppButton} href="https://wa.me/79539193800?text=Здравствуйте!" target="_blank" rel="noopener noreferrer" >
-                                <ImgTag className={styles.noBorder} src={WhatsApp} />
-                                <div className={styles.buttonText}> Напишите нам в WhatsApp! </div>
-                            </Link>
-                            <Link className={styles.whatsAppButton} href="https://max.ru/u/f9LHodD0cOLGeSNM23Hgmz7GCIMBnEryY81gupi2MIu1fVmOEvd4b8LZxVc?text=Здравствуйте!" target="_blank" rel="noopener noreferrer" >
-                                <ImgTag className={styles.noBorder} src={Max} />
-                                <div className={styles.buttonText}> Напишите нам в Max! </div>
-                            </Link>
-                            <Link className={styles.phoneButton} href="tel:83822233800">
-                                <ImgTag className={styles.noBorder} src={Phone} />
-                            </Link>
-                        </div>
-                    </div>
+                    <ContactsFloating/>
                 </Main>
                 <Footer className={styles.footer}/>
             </body>

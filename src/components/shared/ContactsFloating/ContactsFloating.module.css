@@ -1,0 +1,246 @@
+.stickyWrapper {
+	position: sticky;
+	z-index: 2;
+	right: 10px;
+	bottom: 15px;
+
+	display: block;
+	float: right;
+
+	width: 45px;
+	height: 1px;
+}
+
+.stickyWrapperInner {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+
+	display: flex;
+	flex-direction: column;
+
+	width: 45px;
+	margin-bottom: 15px;
+	margin-left: auto;
+	gap: 10px;
+}
+
+.contactsDropdown {
+	display: flex;
+	overflow: visible;
+	align-items: flex-end;
+	flex-direction: column;
+
+	max-height: 0;
+
+	transition: all 0.3s ease;
+	pointer-events: none;
+
+	opacity: 0;
+	gap: 10px;
+}
+
+.dropdownItem {
+	width: 45px;
+
+	transition: all 0.25s ease;
+	transition-delay: var(--delay, 0s);
+	transform: translateY(20px);
+
+	opacity: 0;
+}
+
+.contactsDropdown.open {
+	max-height: 500px;
+
+	pointer-events: auto;
+
+	opacity: 1;
+}
+
+.contactsDropdown.open .dropdownItem {
+	transform: translateY(0);
+
+	opacity: 1;
+}
+
+.whatsAppButton {
+	width: 45px;
+}
+
+.whatsAppButton > img {
+	animation: pulse 1.5s ease infinite;
+}
+
+.whatsAppButton > .buttonText {
+	display: none;
+}
+
+.phoneButton {
+	width: 45px;
+}
+
+.phoneButton > img {
+	animation: pulse 1.5s ease infinite;
+}
+
+.noBorder {
+	border-radius: 0 !important;
+}
+
+.toggleButton {
+	width: 45px;
+	height: 45px;
+
+	cursor: pointer;
+
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0);
+}
+
+.iconWrapper {
+	display: flex;
+	overflow: hidden;
+	align-items: center;
+	justify-content: center;
+
+	animation: pulse 1.5s ease infinite;
+
+	border-radius: 50%;
+	background-color: var(--white);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.iconWrapperNoAnimate {
+	animation: none;
+}
+
+.icon {
+	transition: transform 0.2s ease;
+}
+
+.iconActive {
+	fill: var(--red);
+
+	transform: rotate(130deg);
+}
+
+.toggleButton > .buttonText {
+	display: none;
+}
+
+@media (min-width: 1201px) {
+	.stickyWrapper {
+		right: 20px;
+		bottom: 30px;
+
+		display: block;
+		float: right;
+
+		width: 75px;
+	}
+
+	.stickyWrapperInner {
+		width: 60px;
+		margin-bottom: 30px;
+		margin-left: auto;
+
+		gap: 10px;
+	}
+
+	.toggleButton {
+		width: 60px;
+		height: 60px;
+	}
+
+	.toggleButton > .buttonText {
+		position: absolute;
+		z-index: -1;
+		right: 30px;
+		bottom: 4px;
+
+		display: block;
+		overflow: hidden;
+
+		max-width: 0;
+		padding: 5px 0;
+
+		transition: all 0.7s ease;
+		text-wrap: nowrap;
+
+		color: var(--white);
+		border-radius: 15px 0 0 15px;
+		background-color: rgba(0, 0, 0, 0.7);
+
+		font-size: 17px;
+	}
+
+	.toggleNoAnimate > .buttonText {
+		max-width: 0 !important;
+		padding: 5px 0 !important;
+	}
+
+	.whatsAppButton > .buttonText {
+		position: absolute;
+		z-index: -1;
+		right: 30px;
+		bottom: 4px;
+
+		display: block;
+		overflow: hidden;
+
+		max-width: 0;
+		padding: 5px 0;
+
+		transition: all 0.7s ease;
+		text-wrap: nowrap;
+
+		color: var(--white);
+		border-radius: 15px 0 0 15px;
+		background-color: rgba(0, 0, 0, 0.7);
+	}
+
+	.toggleButton:hover > .buttonText {
+		max-width: 250px;
+		padding: 5px 40px 5px 10px;
+	}
+
+	.contactsDropdown {
+		gap: 12px;
+	}
+
+	.dropdownItem {
+		width: 60px;
+	}
+
+	.whatsAppButton {
+		position: relative;
+
+		width: 60px;
+	}
+
+	.whatsAppButton:hover > .buttonText {
+		max-width: 306px;
+		padding: 5px 40px 5px 10px;
+	}
+
+	.phoneButton {
+		display: none;
+
+		width: 75px;
+	}
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.9);
+	}
+
+	50% {
+		transform: scale(0.99);
+	}
+
+	100% {
+		transform: scale(0.9);
+	}
+}

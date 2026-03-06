@@ -11,6 +11,7 @@ import ImgTag from '../../shared/ImgTag/ImgTag';
 import Phone from './phone.png';
 import WhatsApp from './whatsapp.png';
 import Max from './max.png';
+import Bip from './bip.png';
 import Tg from './tg.png';
 import Open from './open.png';
 import Close from './close.png';
@@ -68,8 +69,10 @@ export default function Sidebar({ menu, className, ...props }: SidebarProps) {
                                     <ImgTag className={styles.noBorder} src={WhatsApp} />
                                 </Link>
                                 <Link className={styles.whatsAppButton} href="https://max.ru/u/f9LHodD0cOLGeSNM23Hgmz7GCIMBnEryY81gupi2MIu1fVmOEvd4b8LZxVc?text=Здравствуйте!" target="_blank" rel="noopener noreferrer" >
-                                <ImgTag className={styles.noBorder} src={Max} />
-                                    <div className={styles.buttonText}> Напишите нам в Max! </div>
+                                    <ImgTag className={styles.noBorder} src={Max} />
+                                </Link>
+                                <Link className={styles.whatsAppButton} href="https://web.bip.com/79539193800" target="_blank" rel="noopener noreferrer" >
+                                    <ImgTag className={styles.noBorder} src={Bip} />
                                 </Link>
                                 <Link className={styles.phoneButton} href="tel:83822233800">
                                     <ImgTag className={styles.noBorder} src={Phone} />
