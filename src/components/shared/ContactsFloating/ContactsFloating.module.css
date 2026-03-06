@@ -104,6 +104,9 @@
 	align-items: center;
 	justify-content: center;
 
+	width: 45px;
+	height: 45px;
+
 	animation: pulse 1.5s ease infinite;
 
 	border-radius: 50%;
@@ -116,6 +119,9 @@
 }
 
 .icon {
+	width: 45px;
+	height: 45px;
+
 	transition: transform 0.2s ease;
 }
 
@@ -149,6 +155,16 @@
 	}
 
 	.toggleButton {
+		width: 60px;
+		height: 60px;
+	}
+
+	.iconWrapper {
+		width: 60px;
+		height: 60px;
+	}
+
+	.icon {
 		width: 60px;
 		height: 60px;
 	}
