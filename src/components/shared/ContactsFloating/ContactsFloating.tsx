@@ -75,9 +75,12 @@ export default function ContactsFloating() {
                             href={contact.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                        >
+                            style={{ "--delay": `${index * 0.1}s` } as React.CSSProperties}
+                            >
                             <ImgTag className={styles.noBorder} src={contact.icon} />
-                            {contact.text && <div className={styles.buttonText}>{contact.text}</div>}
+                            {contact.text && (
+                                <div className={styles.buttonText}>{contact.text}</div>
+                            )}
                         </Link>
                     ))}
                 </div>
