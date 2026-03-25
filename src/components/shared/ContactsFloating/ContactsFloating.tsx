@@ -9,6 +9,7 @@ import WhatsApp from './img/whatsapp.png';
 import Tg from './img/tg.png';
 import Max from './img/max.png';
 import Bip from './img/bip.png';
+import Viber from './img/viber.png';
 import Toggle from './img/toggle.svg';
 import classNames from 'classnames';
 
@@ -47,6 +48,13 @@ export default function ContactsFloating() {
             icon: Max,
             text: 'Напишите нам в Max!',
             className: styles.whatsAppButton
+        },
+        {
+            id: 'viber',
+            href: 'viber://chat?number=%2B79539193800&text=Здравствуйте!',
+            icon: Viber,
+            text: null,
+            className: styles.phoneButton
         },
         {
             id: 'bip',
