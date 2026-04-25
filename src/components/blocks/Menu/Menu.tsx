@@ -32,10 +32,11 @@ function FirstLevel( props: MenuProps) {
     const firstLevelMenu: FirstLevelMenuItem[] = [
         { route: '', name: 'Главная', icon: <Home className={styles.nostroke}/>, id: 2, isNested: false },
         { route: 'services', name: 'Услуги оценки', icon: <Services className={styles.nofill}/>, id: 0, isNested: true},
-        { route: 'expertise', name: 'Услуги экспертизы', icon: <Expertise className={styles.nofill}/>, id: 1, isNested: true},
-        { route: 'contacts', name: 'Контакты', icon: <Contacts className={styles.nostroke}/>, id: 3, isNested: false },
-        { route: 'payment', name: 'Способы оплаты', icon: <Payment className={styles.nostroke} />, id: 4, isNested: false },
-        { route: 'list_privileged.pdf', name: 'Льготные категории граждан', icon: <Perk className={styles.nofill} />, id: 5, isNested: false, newTab: true },
+        { route: 'expertise', name: 'Услуги экспертизы', icon: <Expertise className={styles.nofill} />, id: 1, isNested: true },
+        { route: 'bankruptcy', name: 'Списание долгов', icon: <Perk className={styles.nofill} />, id: 3, isNested: false},
+        { route: 'list_privileged.pdf', name: 'Льготные категории граждан', icon: <Perk className={styles.nofill} />, id: 4, isNested: false, newTab: true },
+        { route: 'contacts', name: 'Контакты', icon: <Contacts className={styles.nostroke}/>, id: 5, isNested: false },
+        { route: 'payment', name: 'Способы оплаты', icon: <Payment className={styles.nostroke} />, id: 6, isNested: false },
     ];
     
     const pagePath = usePathname();

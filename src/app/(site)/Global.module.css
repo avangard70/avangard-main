@@ -22,6 +22,49 @@
 	margin-bottom: 0;
 }
 
+.fourGrid {
+	display: grid;
+
+	width: 100%;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	gap: 14px 20px;
+}
+
+.withLine {
+	position: relative;
+
+	align-self: start;
+
+	padding-left: 20px;
+
+	white-space: pre-wrap;
+
+	font-size: 20px;
+	line-height: 22px;
+}
+
+.withLine::before {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+
+	width: 7px;
+
+	content: '';
+
+	border-radius: 4px;
+	background-color: var(--primary);
+}
+
+@media (max-width: 870px) {
+	.fourGrid {
+		grid-template-columns: 1fr;
+		grid-template-rows: none;
+	}
+}
+
 @media (max-width: 768px) {
 	.sectionWrapper {
 		margin-top: 20px;
@@ -37,5 +80,13 @@
 
 	.sectionWrapper {
 		padding: 0 15px;
+	}
+
+	.withLine,
+	.important {
+		margin: 0 10px;
+
+		font-size: 16px;
+		line-height: 18px;
 	}
 }
