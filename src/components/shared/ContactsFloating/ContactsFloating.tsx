@@ -65,7 +65,7 @@ export default function ContactsFloating() {
         },
         {
             id: 'phone',
-            href: 'tel:83822233800',
+            href: 'tel:89539193800',
             icon: Phone,
             text: null,
             className: styles.phoneButton

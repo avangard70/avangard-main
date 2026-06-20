@@ -74,7 +74,7 @@ export default function Sidebar({ menu, className, ...props }: SidebarProps) {
                                 <Link className={styles.phoneButton} href="viber://chat?number=%2B79539193800&text=Здравствуйте!" target="_blank" rel="noopener noreferrer" >
                                     <ImgTag className={styles.noBorder} src={Viber} />
                                 </Link>
-                                <Link className={styles.phoneButton} href="tel:83822233800">
+                                <Link className={styles.phoneButton} href="tel:89539193800">
                                     <ImgTag className={styles.noBorder} src={Phone} />
                                 </Link>
                             </div>

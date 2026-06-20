@@ -94,9 +94,9 @@
 	}
 
 	.nav .phone {
-		display: grid !important;
+		/* display: grid !important;
 		grid-template-columns: 19px auto;
-		grid-template-rows: auto auto;
+		grid-template-rows: auto auto; */
 	}
 
 	.nav .phone svg {

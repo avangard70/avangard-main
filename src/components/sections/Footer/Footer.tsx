@@ -36,9 +36,7 @@ export default function Footer({className,...props}: FooterProps) {
                     </span>
                     <div className={classNames(styles.point, styles.phone)}>
                         <Num/>
-                        <Link href="tel:89539193800">+7 (953) 919-3800</Link>
-                        <span>/</span>
-                        <Link href="tel:83822233800">+7 (3822) 233-800</Link>
+                        <Link href="tel:89539193800">Позвоните нам: +7 (953) 919-3800</Link>
                     </div>
                     <Link className={styles.point} href="mailto:expert233800@mail.ru">
                         <Mail/>
