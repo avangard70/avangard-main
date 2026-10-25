@@ -7,6 +7,8 @@ const staticPages = [
     { path: '/payment', priority: 0.7, changefreq: 'monthly' },
     { path: '/services', priority: 0.8, changefreq: 'daily' },
     { path: '/expertise', priority: 0.8, changefreq: 'daily' },
+    { path: '/certification', priority: 0.8, changefreq: 'monthly' },
+    { path: '/certification/specialties', priority: 0.7, changefreq: 'monthly' },
 ];
 
 export const dynamic = "force-dynamic";

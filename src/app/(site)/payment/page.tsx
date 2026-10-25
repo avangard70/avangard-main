@@ -23,7 +23,11 @@ export default function PaymentPage(): JSX.Element {
             </div>
             <HTag className={styles.h3} tag="h3" direction="fromLeft">Банковская карта</HTag>
             <div className={styles.sectionWrapper}>
-                <span>Оплата банковской картой через терминал в офисе</span>
+                <span>Оплата банковской картой через терминал в офисе. Принимаем к оплате карту «Халва».</span>
+            </div>
+            <HTag className={styles.h3} tag="h3" direction="fromLeft">Цифровой рубль</HTag>
+            <div className={styles.sectionWrapper}>
+                <span>Принимаем оплату цифровым рублём.</span>
             </div>
             <HTag className={styles.h3} tag="h3" direction="fromLeft">QR-код</HTag>
             <div className={styles.sectionWrapper}>
@@ -54,8 +58,8 @@ export default function PaymentPage(): JSX.Element {
                 <p>{parseToHTML("/n//bold/Банковские реквизиты//bold//")}</p>
                 <p>{parseToHTML("/bold/Р/счет://bold// 40702810364000007569")}</p>
                 <p>{parseToHTML("/n//bold/ПАО Сбербанк//bold//")}</p>
-                <p>{parseToHTML("/bold/Кор/счет://bold// 30101810800000000606")}</p>
-                <p>{parseToHTML("/bold/БИК://bold// 046902606")}</p>
+                <p>{parseToHTML("/bold/Кор/счет://bold// 30101810800000000651")}</p>
+                <p>{parseToHTML("/bold/БИК://bold// 047102651")}</p>
             </div>
         </div>
     );

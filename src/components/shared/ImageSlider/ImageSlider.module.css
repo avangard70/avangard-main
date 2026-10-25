@@ -1,0 +1,139 @@
+.wrapper {
+	width: 100%;
+	min-width: 0;
+}
+
+.stage {
+	position: relative;
+}
+
+.viewport {
+	overflow: hidden;
+
+	border-radius: 7px;
+}
+
+.track {
+	display: flex;
+
+	touch-action: pan-y pinch-zoom;
+}
+
+.slide {
+	flex: 0 0 100%;
+
+	min-width: 0;
+}
+
+.image {
+	display: block;
+
+	width: 100%;
+	height: clamp(320px, 42vw, 560px);
+
+	object-fit: contain;
+}
+
+.arrow {
+	position: absolute;
+	z-index: 1;
+	top: 50%;
+
+	display: none;
+
+	width: 40px;
+	height: 40px;
+	padding: 0;
+
+	translate: 0 -50%;
+
+	border-radius: 50%;
+
+	font-size: 28px;
+}
+
+.previous {
+	left: 10px;
+}
+
+.next {
+	right: 10px;
+}
+
+.dots {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	margin-top: 12px;
+}
+
+.dot {
+	display: grid;
+	place-items: center;
+
+	width: 28px;
+	height: 28px;
+
+	border-radius: 50%;
+	background: transparent;
+}
+
+.dot::before {
+	width: 8px;
+	height: 8px;
+
+	content: '';
+
+	border-radius: 50%;
+	background-color: rgba(47, 72, 119, 0.2);
+}
+
+.activeDot::before {
+	background-color: var(--primary);
+}
+
+.wrapper:focus-visible,
+.wrapper button:focus-visible {
+	outline: 2px solid var(--active);
+	outline-offset: 4px;
+}
+
+.empty {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+
+	min-height: 220px;
+	padding: 30px 15px;
+
+	text-align: center;
+
+	color: var(--primary);
+	gap: 15px;
+}
+
+.emptyTitle {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+@media (max-width: 870px) {
+	.dot {
+		width: 24px;
+		height: 24px;
+	}
+
+	.dot::before {
+		width: 5px;
+		height: 5px;
+	}
+}
+
+@media (min-width: 871px) and (hover: hover) and (pointer: fine) {
+	.stage:hover .arrow {
+		display: grid;
+		place-items: center;
+	}
+}

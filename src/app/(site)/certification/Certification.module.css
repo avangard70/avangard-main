@@ -1,0 +1,261 @@
+.fullWidth {
+	width: 100%;
+}
+
+.wrapper .withLine {
+	margin: 0;
+}
+
+.registration {
+	margin-top: 15px;
+
+	overflow-wrap: anywhere;
+
+	font-weight: 600;
+}
+
+.cards {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+
+	width: 100%;
+	gap: 20px;
+}
+
+.cards > :last-child {
+	grid-column: 1 / -1;
+}
+
+.steps {
+	display: flex;
+	flex-direction: column;
+
+	width: 100%;
+
+	list-style: none;
+	gap: 14px;
+}
+
+.step {
+	display: flex;
+	align-items: center;
+
+	padding: 20px 25px;
+
+	border-radius: 7px;
+	background-color: var(--white);
+
+	font-size: 18px;
+	line-height: 1.5;
+	gap: 20px;
+}
+
+.stepNumber {
+	display: grid;
+	flex-shrink: 0;
+	place-items: center;
+
+	width: 40px;
+	height: 40px;
+
+	color: var(--white);
+	border-radius: 50%;
+	background-color: var(--primary);
+
+	font-weight: 600;
+}
+
+.button {
+	display: inline-block;
+
+	max-width: 100%;
+	padding: 16px 32px;
+
+	transition: background-color 0.1s linear;
+	text-align: center;
+
+	color: var(--white);
+	border-radius: 18px;
+	background-color: var(--primary);
+
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.5;
+}
+
+.button:hover {
+	background-color: var(--primary-hover);
+}
+
+.documentsLayout {
+	display: grid;
+	align-items: start;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+
+	width: 100%;
+	gap: 60px;
+}
+
+.documentsColumn {
+	display: flex;
+	flex-direction: column;
+
+	min-width: 0;
+	gap: 30px;
+}
+
+.documentsColumn .documentsContent {
+	display: flex;
+	align-items: flex-start;
+	align-self: stretch;
+	flex-direction: column;
+
+	min-width: 0;
+	padding: 10px 0 10px 20px;
+	gap: 25px;
+}
+
+.documentsContent .documentsInfo {
+	width: 100%;
+	padding: 0;
+
+	background: transparent;
+}
+
+.documentsGallery {
+	min-width: 0;
+	padding: 24px 16px 12px;
+
+	border-radius: 7px;
+	background: rgba(47, 72, 119, 0.04);
+}
+
+.galleryTitle {
+	margin-bottom: 20px;
+
+	text-align: center;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+
+	color: var(--primary);
+
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1.5;
+}
+
+.documents {
+	display: flex;
+	flex-direction: column;
+
+	list-style: none;
+
+	line-height: 1.5;
+	gap: 0;
+}
+
+.documents li {
+	position: relative;
+
+	padding: 14px 0 14px 28px;
+
+	border-bottom: 1px solid rgba(47, 72, 119, 0.12);
+}
+
+.documents li::before {
+	position: absolute;
+	top: 16px;
+	left: 0;
+
+	width: 20px;
+	height: 20px;
+
+	content: '';
+
+	background: url('../bankruptcy/icons/success.png') center / contain no-repeat;
+}
+
+.textLink {
+	overflow-wrap: anywhere;
+
+	color: var(--primary);
+
+	font-weight: 600;
+}
+
+.textLink:hover {
+	text-decoration: underline;
+}
+
+.button:focus-visible,
+.textLink:focus-visible {
+	outline: 2px solid var(--active);
+	outline-offset: 4px;
+}
+
+.specialties {
+	width: 100%;
+
+	list-style: none;
+}
+
+.specialty {
+	display: grid;
+	grid-template-columns: 55px minmax(0, 1fr);
+
+	padding: 20px 25px;
+
+	border-radius: 7px;
+	background-color: var(--white);
+
+	font-size: 16px;
+	line-height: 1.5;
+	gap: 15px;
+}
+
+.specialty + .specialty {
+	margin-top: 10px;
+}
+
+.code {
+	color: var(--primary);
+
+	font-weight: 600;
+}
+
+@media (max-width: 870px) {
+	.cards,
+	.documentsLayout {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+@media (max-width: 425px) {
+	.documentsLayout {
+		gap: 35px;
+	}
+
+	.documentsGallery {
+		padding: 20px 8px 8px;
+	}
+
+	.step {
+		padding: 15px;
+
+		font-size: 16px;
+		gap: 12px;
+	}
+
+	.button {
+		padding: 14px 20px;
+	}
+
+	.specialty {
+		grid-template-columns: 42px minmax(0, 1fr);
+
+		padding: 15px;
+
+		font-size: 15px;
+		gap: 10px;
+	}
+}
