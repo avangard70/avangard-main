@@ -23,7 +23,7 @@ export default function PaymentPage(): JSX.Element {
             </div>
             <HTag className={styles.h3} tag="h3" direction="fromLeft">Банковская карта</HTag>
             <div className={styles.sectionWrapper}>
-                <span>Оплата банковской картой через терминал в офисе. Принимаем к оплате карту «Халва».</span>
+                <span>Оплата банковской картой через терминал в офисе. Принимаем к оплате карту «Халва». Доступна оплата в рассрочку от нашей компании.</span>
             </div>
             <HTag className={styles.h3} tag="h3" direction="fromLeft">Цифровой рубль</HTag>
             <div className={styles.sectionWrapper}>
