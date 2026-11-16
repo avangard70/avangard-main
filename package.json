@@ -15,6 +15,7 @@
     "@pbe/react-yandex-maps": "^1.2.5",
     "@svgr/webpack": "^8.1.0",
     "classnames": "^2.5.1",
+    "csv-parse": "6.1.0",
     "embla-carousel-autoplay": "8.6.0",
     "embla-carousel-react": "8.6.0",
     "framer-motion": "^12.23.24",

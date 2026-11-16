@@ -1,10 +1,12 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 import Link from "next/link";
 import HTag from "@/src/components/shared/HTag/HTag";
 import Info from "@/src/components/shared/Info/Info";
 import Important from "@/src/components/shared/Important/Important";
 import ImageSlider from "@/src/components/shared/ImageSlider/ImageSlider";
 import { getCertificationImages } from "./images";
+import ExpertRegistry from "./ExpertRegistry";
 import gStyles from '../Global.module.css';
 import styles from './Certification.module.css';
 
@@ -129,6 +131,13 @@ export default async function CertificationPage() {
                         <ImageSlider images={images} label="Сертификаты и документы" />
                     </div>
                 </div>
+            </div>
+
+            <HTag tag="h2" direction="fromRight" id="expert-registry-title">Реестр судебных экспертов</HTag>
+            <div className={gStyles.sectionWrapper}>
+                <Suspense fallback={<p role="status">Загружаем реестр…</p>}>
+                    <ExpertRegistry />
+                </Suspense>
             </div>
         </div>
     );
